@@ -13,6 +13,18 @@ export default function App() {
     });
   }, []);
 
+  async function handleAddProject() {
+    const response = await api.post('projects', {
+      title: `Novo projeto ${Date.now()}`,
+      owner: 'Lohan Luiz'
+    });
+
+    const project = response.data;
+
+    setProjects([...projects, project]);
+  }
+  
+
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
@@ -26,7 +38,11 @@ export default function App() {
           )}
         />
 
-        <TouchableOpacity activeOpaticy={0.6} style={styles.button}>
+        <TouchableOpacity 
+          activeOpaticy={0.6} 
+          style={styles.button} 
+          onPress={handleAddProject}
+        >
           <Text style={styles.buttonText}>Adicionar projeto</Text>
         </TouchableOpacity>
       </SafeAreaView>
