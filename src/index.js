@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hello GoStack!</Text>
-    </View>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
+      <View style={styles.container}>
+        <Text style={styles.title}>Hello GoStack!</Text>
+      </View>
+    </>
   );
 }
 
